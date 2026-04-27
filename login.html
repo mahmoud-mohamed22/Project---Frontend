@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - BudgetTracker</title>
     <link rel="stylesheet" href="style.css">
+
     <style>
         body {
             display: flex;
@@ -29,49 +30,47 @@
             backdrop-filter: blur(10px);
             border: 1px solid var(--primary-purple);
             animation: slideUp 0.6s ease-out;
+            position: relative;
         }
 
-.input-field {
-    width: 100%; 
-    padding: 15px 20px; 
-    margin: 15px 0; 
-    background: rgba(255, 255, 255, 0.05); 
-    border: 1px solid rgba(192, 132, 252, 0.3); 
-    border-radius: 8px; 
-    color: white;
-    font-size: 1rem; 
-    outline: none;
-    transition: 0.3s ease; 
-    box-sizing: border-box; 
-}
+        .input-field {
+            width: 100%; 
+            padding: 15px 20px; 
+            margin: 15px 0; 
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(192, 132, 252, 0.3); 
+            border-radius: 8px; 
+            color: white;
+            font-size: 1rem; 
+            outline: none;
+            transition: 0.3s ease; 
+            box-sizing: border-box; 
+        }
 
-.input-field:focus {
-    border-color: var(--primary-purple); 
-    box-shadow: 0 0 10px rgba(192, 132, 252, 0.5); 
-    background: rgba(255, 255, 255, 0.1); 
-}
-.login-card {
-    position: relative; 
-}
+        .input-field:focus {
+            border-color: var(--primary-purple); 
+            box-shadow: 0 0 10px rgba(192, 132, 252, 0.5); 
+            background: rgba(255, 255, 255, 0.1); 
+        }
 
-.close-link {
-    position: absolute;
-    top: 15px; 
-    right: 20px; 
-    font-size: 30px; 
-    color: var(--primary-purple); 
-    text-decoration: none; 
-    line-height: 1;
-    transition: 0.3s;
-    z-index: 100; 
-    cursor: pointer;
-}
+        .close-link {
+            position: absolute;
+            top: 15px; 
+            right: 20px; 
+            font-size: 30px; 
+            color: var(--primary-purple); 
+            text-decoration: none; 
+            line-height: 1;
+            transition: 0.3s;
+            z-index: 100; 
+            cursor: pointer;
+        }
 
-.close-link:hover {
-    transform: scale(1.2); 
-    text-shadow: 0 0 15px var(--primary-purple); 
-    color: rgb(216, 4, 4); 
-}
+        .close-link:hover {
+            transform: scale(1.2); 
+            text-shadow: 0 0 15px var(--primary-purple); 
+            color: rgb(216, 4, 4); 
+        }
 
         @keyframes slideUp {
             from { opacity: 0; transform: translateY(30px); }
@@ -79,11 +78,14 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="login-container">
         <div class="card login-card">
+
             <a href="home.html" class="close-link">&times;</a>
+
             <h1 class="glow">BudgetTracker</h1>
             <p style="color: #ccc; margin-bottom: 30px;">Login to your account</p>
 
@@ -97,10 +99,16 @@
             </form>
 
             <p style="margin-top: 25px; font-size: 0.9rem;">
-                New here? <a href="#" class="glow" style="text-decoration: none;">Create an Account</a>
+                New here? 
+                <a href="sign.html" class="glow" style="text-decoration: none;">
+                    Create an Account
+                </a>
             </p>
+
         </div>
     </div>
+
     <script src="style.js"></script>
+
 </body>
 </html>

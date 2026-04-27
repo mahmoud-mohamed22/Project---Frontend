@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Account</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #dbb7dc;
+      background-image: url('project.jpg');
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: rgb(107, 35, 158);
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      display:block;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #34023f;
+      color: rgb(229, 221, 231);
+      border: none;
+      cursor: pointer;
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Create Account</h2>
+
+  <form id="registerForm">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+    <p class="error" id="errorMsg"></p>
+
+    <button type="submit">Sign Up</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById("registerForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value;
+    let confirmPassword = document.getElementById("confirmPassword").value;
+    let errorMsg = document.getElementById("errorMsg");
+
+    // validation
+    if (name === "" || email === "" || password === "" || confirmPassword === "") {
+      errorMsg.textContent = "Please fill all fields";
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      errorMsg.textContent = "Passwords do not match!";
+      return;
+    }
+
+    errorMsg.textContent = "";
+
+    window.location.href = "home.html";
+  });
+</script>
+
+</body>
+</html>
