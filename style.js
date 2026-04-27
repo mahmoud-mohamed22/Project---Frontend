@@ -1,42 +1,25 @@
-/* ==========================================
-   Budget Tracker - Dashboard Logic
-   ========================================== */
+const authContainer = document.getElementById('auth-buttons');
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
 
-// 1. استدعاء العناصر من الصفحة
-const addExpenseBtn = document.querySelectorAll('.btn')[2]; // زرار إضافة مصروف
-const addIncomeBtn = document.querySelectorAll('.btn')[1];  // زرار إضافة دخل
+    if (isLoggedIn === 'true') {
+        authContainer.innerHTML = `
+            <a href="dashboard.html" style="text-decoration: none;">
+                <button class="btn" style="margin-right: 10px;">Go to Dashboard</button>
+            </a>
+            <button class="btn btn-logout" onclick="logout()">Log Out</button>
+        `;
+    }
 
-// 2. إضافة "Events" للزراير (عشان تحس بالضغط)
-document.addEventListener('DOMContentLoaded', () => {
-    console.log("Dashboard Ready!");
-
-    // مثال: لما تدوس على إضافة مصروف
-    document.body.addEventListener('click', (e) => {
-        if (e.target.innerText === '+ Add Expense') {
-            handleNewEntry('Expense');
-        }
-        if (e.target.innerText === '+ Add Income') {
-            handleNewEntry('Income');
-        }
-    });
-});
-
-// 3. وظيفة التعامل مع الإدخالات الجديدة
-function handleNewEntry(type) {
-    // حالياً بنطلع رسالة بسيطة، قدام هتحط "Pop-up" أو تفتح صفحة
-    alert(`Opening Form to add new ${type}...`);
-    
-    /* هنا يا محمود في المستقبل هتعمل Fetch للباك إيند:
-       fetch('https://api.yourbudgetapp.com/add', {
-           method: 'POST',
-           body: JSON.stringify({ type: type, amount: 0 })
-       });
-    */
-}
-
-// 4. وظيفة تحديث الأرقام (Dashboard Update)
-function updateBalance(newAmount) {
-    const balanceElement = document.querySelector('h2'); 
-    balanceElement.innerText = `$${newAmount}`;
-    balanceElement.classList.add('glow'); // خليه ينور لما يتغير
-}
+    function logout() {
+        localStorage.removeItem('isLoggedIn'); 
+        window.location.reload(); 
+    }
+    document.getElementById('loginForm').onsubmit = function(e) {
+        e.preventDefault();
+        localStorage.setItem('isLoggedIn', 'true'); 
+        window.location.href = 'dashboard.html'; 
+    };
+    function logout() {
+        localStorage.removeItem('isLoggedIn');
+        window.location.href = 'home.html';
+    }
