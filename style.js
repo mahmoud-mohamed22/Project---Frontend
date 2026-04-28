@@ -23,3 +23,4 @@ const authContainer = document.getElementById('auth-buttons');
         localStorage.removeItem('isLoggedIn');
         window.location.href = 'home.html';
     }
+    
