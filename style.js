@@ -23,4 +23,45 @@ const authContainer = document.getElementById('auth-buttons');
         localStorage.removeItem('isLoggedIn');
         window.location.href = 'home.html';
     }
+    document.addEventListener('DOMContentLoaded', () => {
+    const dateInput = document.getElementById('incomeDate');
     
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1; 
+    let dd = today.getDate();
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+
+    const formattedToday = yyyy + '-' + mm + '-' + dd;
+    dateInput.value = formattedToday;
+});
+const incomeData = {
+    amount: document.getElementById('amount').value,
+    description: document.getElementById('description').value,
+    category: document.getElementById('category').value,
+    date: document.getElementById('incomeDate').value 
+};
+const ctx = document.getElementById('incomeChart').getContext('2d');
+new Chart(ctx, {
+    type: 'bar',
+    data: { },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true, 
+        aspectRatio: 1.5,  
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: { color: 'white', font: { size: 10 } } 
+            },
+            x: {
+                ticks: { color: 'white' }
+            }
+        },
+        plugins: {
+            legend: { display: false }
+        }
+    }
+});

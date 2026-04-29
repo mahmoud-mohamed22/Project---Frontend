@@ -12,13 +12,15 @@
     
     <ul>
         <li><a href="home.html">Home</a></li>
-        <li><a href="#">Analysis</a></li>
-        <li><a href="#">History</a></li>
+        <li><a href="analysis.html">Analysis</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="budgets.html">Budgets</a></li>
     </ul>
 
     <div class="nav-buttons">
     <a href="home.html" style="text-decoration: none;">
         <button class="btn btn-logout" onclick="logout()">Log Out</button>
+        
     </a>
 </div>
 </nav>
@@ -51,16 +53,17 @@
 
         </div>
 
-        <div class="card" style="margin-top: 30px; text-align: center;">
-            <h3 class="glow">Quick Actions</h3>
-            <div style="display: flex; justify-content: center; gap: 15px; margin-top: 15px;">
-                <button class="btn">+ Add Expense</button>
-                <button class="btn">+ Add Income</button>
-                <button class="btn">Generate Report</button>
-            </div>
-        </div>
+        <div class="quick-actions-box">
+    <h3 class="glow">Quick Actions</h3>
+    <div class="buttons-group">
+        <button class="action-btn">+ Add Expense</button>
+        <a href="add.income.html"><button class="action-btn">+ Add Income</button></a>
+        <button class="action-btn">Generate Report</button>
+    </div>
+</div>
 
     </div>
+    
 <script src="style.js"></script>
 </body>
 </html>
