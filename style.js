@@ -65,3 +65,17 @@ new Chart(ctx, {
         }
     }
 });
+
+const newExpense = {
+    date: document.getElementById('date').value,
+    desc: document.getElementById('desc').value,
+    cat: document.getElementById('category').value, 
+    amt: "-$" + document.getElementById('amount').value,
+    type: 'ex' 
+};
+
+let transactions = JSON.parse(localStorage.getItem('myTransactions')) || [];
+transactions.unshift(newExpense);
+localStorage.setItem('myTransactions', JSON.stringify(transactions));
+
+

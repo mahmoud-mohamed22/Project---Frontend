@@ -164,7 +164,7 @@
                     <td>${t.desc}</td>
                     <td><span class="status-badge">${t.cat}</span></td>
                     <td class="${t.type === 'in' ? 'amt-in' : 'amt-ex'}">${t.amt}</td>
-                    <td>Deposit</td>
+                    <td>${t.type === 'in' ? 'Deposit' : 'Expense'}</td>
                 </tr>
             `;
             tableBody.innerHTML += row;
